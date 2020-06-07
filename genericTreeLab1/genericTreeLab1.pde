@@ -20,31 +20,36 @@ void setup() {
   println("\n");
   println("REVERSE ORDER");//5
   tree.revOrder();
-
-  //println("\n\nTree before removing any nodes - using level order traversal.");
-  //tree.levelOrder();//6
-
-  //println("\nNumber of levels is " + tree.getNumLevels());//7
-  //println("\nTree width is " + tree.getWidth());//8
-  //println("\nTree height is " + tree.getHeight());//9
-  //println("\nNumber of leaves is " + tree.getNumLeaves());//10
-  //println("\nNumber of nodes is " + tree.getNumNodes());//11
-  //println("\n\n");//search is method 12
-  //println(tree.search(100)?"The tree contains 100!":"The does not contain 100!");
-  //println(tree.search(114)?"The tree contains 114!":"The does not contain 114!");
-
-  //tree.remove(90);//13
-  //println("\nTree after removing 90.");
-  //tree.levelOrder();
-
-  //tree.remove(70);
-  //println("\nTree after removing 70.");
-  //tree.levelOrder();
-
-  //println();
-  //println("The smallest tree node " + tree.getSmallest());//14
-  //println();
-  //println(tree);//15
+  println("\n");
+  println("Tree before removing any nodes - using level order traversal.");
+  tree.levelOrder();//6
+  print("\n");
+  print("\n");
+  println("Number of levels is " + tree.getNumLevels());//7
+  print("\n");
+  println("Tree width is " + tree.getWidth());//8
+  print("\n");
+  println("Tree height is " + tree.getHeight());//9
+  print("\n");
+  println("Number of leaves is " + tree.getNumLeaves());//10
+  print("\n");
+  println("Number of nodes is " + tree.getNumNodes());//11
+  print("\n");
+  println(tree.search(100)?"The tree contains 100!":"The does not contain 100!");//12
+  println(tree.search(114)?"The tree contains 114!":"The does not contain 114!");
+  print("\n");
+  tree.remove(90);//13
+  println("Tree after removing 90.");
+  tree.levelOrder();
+  print("\n");
+  tree.remove(70);
+  println("\nTree after removing 70.");
+  tree.levelOrder();
+  print("\n");
+  print("\n");
+  println("The smallest tree node is " + tree.getSmallest());//14
+  print("\n");
+  println("The tree as a string is" + tree);//15
 }
 
 public interface Treeable<T extends Comparable<T>> {

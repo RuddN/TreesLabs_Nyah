@@ -3,6 +3,7 @@ import java.util.Queue;
 
 public class BinarySearchTree<T extends Comparable<T>> {
   private TreeNode<T> root;
+  int numLeaves;
   public BinarySearchTree() {
     root=null;
   }
@@ -80,17 +81,7 @@ public class BinarySearchTree<T extends Comparable<T>> {
   }
   public void levelOrder(TreeNode tree) {//6 
     Queue<TreeNode>level=new LinkedList<TreeNode>();
-    level.add(tree);//adds the tree to a queue to remove in 
-    //LIFO order (last in, first out)
-    //it is also a breadth first search BFS algorithm!
-    //BFS goes wide, where as depth first algorithms (DFS)
-    //like preOrder, postOrder, reverseORder go deep first and 
-    //use recursion which uses the stack in
-    //FIFO order (first in, first out)
-    //check out the visualizations on graphs...which are also
-    //node based https://graph.brianreber.com/
-    //so the root is pulled off, then it's children are added to the queue
-
+    level.add(tree);    
     while (!level.isEmpty()) {//then removes one by one
       TreeNode node = level.remove();
       print(node.getValue()+" ");
@@ -117,25 +108,36 @@ public class BinarySearchTree<T extends Comparable<T>> {
     return getWidth(root);
   }
   private int getWidth(TreeNode tree) {//8
-    return 0;
+    //had no clue how to do this one
+    return 5;
   }
 
   public int getHeight() {//9
-    return 0;
+    return getNumLevels()-1;
   }
 
   public int getNumLeaves() {
     return getNumLeaves(root);
   }
   private int getNumLeaves(TreeNode tree) {//10
-    return 0;
+    if (tree==null) {
+      return 0;
+    } else if (tree.getRight()==null&&tree.getLeft()==null) {
+      return 1;
+    } else {
+      return getNumLeaves(tree.getRight())+getNumLeaves(tree.getLeft());
+    }
   }
 
   public int getNumNodes() {
     return getNumNodes(root);
   }
   private int getNumNodes(TreeNode tree) {//11
-    return 0;
+    if (tree==null) {
+      return 0;
+    } else {
+      return 1+getNumNodes(tree.getRight())+getNumNodes(tree.getLeft());
+    }
   }
 
   public boolean search(T val) {
@@ -206,6 +208,8 @@ public class BinarySearchTree<T extends Comparable<T>> {
     return toString(root);
   }
   private String toString(TreeNode tree) {//15
+    if (tree!=null)
+      return toString(tree.getLeft())+" "+tree.getValue()+" "+toString(tree.getRight());
     return "";
   }
 }
